@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace ECS
+namespace ecs
 {
 	using Entity = unsigned int;
 
