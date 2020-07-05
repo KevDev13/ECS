@@ -22,9 +22,6 @@ namespace ecs
 		inline bool EntityExists(Entity id) const { return m_entitiesInUse.test(id); }
 
 	protected:
-		// current number of entities
-		Entity m_activeEntityCount{};
-
 		// array to map component bitset to each entity
 		std::array<ComponentBits, MAX_ENTITIES> m_componentBits{};
 

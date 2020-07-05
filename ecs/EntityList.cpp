@@ -23,20 +23,18 @@ namespace ecs
 	*/
 	bool EntityList::CreateEntity(Entity& id)
 	{
-		if (m_activeEntityCount >= MAX_ENTITIES)
+		// if the number of entities in use have already hit the max number we can have
+		if (m_entitiesInUse.count() >= MAX_ENTITIES)
 		{
-			// we've already hit the max number of entities possible
 			return false;
 		}
 
-		++m_activeEntityCount;
-
-		// get next available entity
+		// get next available entity and remove from list of available entity ids
 		id = m_availableEntities.front();
 		m_availableEntities.pop();
 		m_componentBits[id].reset();	// likely not needed but just in case
 
-		m_entitiesInUse.set(id);
+		m_entitiesInUse.set(id);		// set the entity in use
 
 		return true;
 	}
@@ -53,7 +51,7 @@ namespace ecs
 		}
 
 		m_componentBits[id].reset();	// reset component bits
-		m_availableEntities.push(id);
-		--m_activeEntityCount;
+		m_availableEntities.push(id);	// add the id to the list of available ids
+		m_entitiesInUse.reset(id);		// set the bit to 0 to indicate the entity is no longer in use
 	}
 }
