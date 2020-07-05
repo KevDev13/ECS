@@ -19,6 +19,7 @@ namespace ecs
 		bool DeleteEntity(Entity id);
 		inline void SetEntityComponents(Entity id, ComponentBits bits) { m_componentBits[id] = bits; }
 		inline ComponentBits GetEntityComponents(Entity id) const { return m_componentBits[id]; }
+		inline bool EntityExists(Entity id) const { return m_entitiesInUse.test(id); }
 
 	protected:
 		// current number of entities

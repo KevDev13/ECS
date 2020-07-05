@@ -47,7 +47,7 @@ namespace ecs
 	bool EntityList::DeleteEntity(Entity id)
 	{
 		// check if the entity exists or not
-		if (id >= MAX_ENTITIES || !m_entitiesInUse.test(id))
+		if (id >= MAX_ENTITIES || !EntityExists(id))
 		{
 			return false;
 		}
