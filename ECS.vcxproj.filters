@@ -18,21 +18,21 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ecs\EntityList.cpp">
+    <ClCompile Include="EntityList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ecs\Entity.hpp">
+    <ClInclude Include="Component.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ecs\EntityList.hpp">
+    <ClInclude Include="Entity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ecs\Component.hpp">
+    <ClInclude Include="EntityList.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ecs\System.hpp">
+    <ClInclude Include="System.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
