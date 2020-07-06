@@ -1,17 +1,19 @@
 #pragma once
 
 #include <set>
+#include <bitset>
 
 #include "Entity.hpp"
+#include "Component.hpp"
 
 namespace ecs
 {
 	class ISystem
 	{
 	public:
-		virtual void Run() = 0;
+		virtual void Update() = 0;
 
 	protected:
-		std::set<Entity> m_entities;
+		std::bitset<MAX_COMPONENTS> m_requiredComponents;
 	};
 }
