@@ -1,7 +1,7 @@
+#pragma once
+
 #include <limits>	// used for UINT_MAX and USHRT_MAX. Can be removed if those are not needed below
 #include <bitset>
-
-#pragma once
 
 namespace ecs
 {
