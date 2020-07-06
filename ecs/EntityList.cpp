@@ -51,5 +51,6 @@ namespace ecs
 		m_componentBits[id].reset();	// reset component bits
 		m_availableEntities.push(id);	// add the id to the list of available ids
 		m_entitiesInUse.reset(id);		// set the bit to 0 to indicate the entity is no longer in use
+		return true;
 	}
 }
