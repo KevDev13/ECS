@@ -4,6 +4,7 @@
 #include <queue>
 
 #include "Entity.hpp"
+#include "Component.hpp"
 
 namespace ecs
 {
