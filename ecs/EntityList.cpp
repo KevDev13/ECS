@@ -1,5 +1,3 @@
-
-
 #include "EntityList.hpp"
 
 namespace ecs
