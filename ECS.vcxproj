@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EntityComponentSystem.cpp" />
     <ClCompile Include="EntityList.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="Entity.hpp" />
+    <ClInclude Include="EntityComponentSystem.hpp" />
     <ClInclude Include="EntityList.hpp" />
     <ClInclude Include="System.hpp" />
   </ItemGroup>
