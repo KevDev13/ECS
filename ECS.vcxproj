@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.hpp" />
+    <ClInclude Include="ECS.hpp" />
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="EntityComponentSystem.hpp" />
     <ClInclude Include="EntityList.hpp" />
