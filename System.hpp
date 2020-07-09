@@ -14,15 +14,16 @@ namespace ecs
 	public:
 		virtual void Update() = 0;
 
-		void AddEntity(Entity id)
+		bool AddEntity(Entity id)
 		{
-			
+			return true;
 		}
 
 		void RemoveEntity(Entity id)
 		{
 
 		}
+
 		inline void SetRequiredComponents(ComponentBits components) { m_requiredComponents = components; }
 
 		inline ComponentBits GetRequiredComponents() const { return m_requiredComponents; }
