@@ -15,8 +15,15 @@ namespace ecs
 	public:
 		virtual void Update() = 0;
 
-		virtual bool AddEntity(Entity id)
+		virtual bool AddEntity(Entity id, ComponentBits components)
 		{
+			if (!EntityHasRequiredComponents(components))
+			{
+				return false;
+			}
+
+			m_entities.push_back(id);
+
 			return true;
 		}
 
