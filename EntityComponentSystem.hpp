@@ -18,6 +18,11 @@ namespace ecs
 
 		Entity CreateEntity();
 		bool DeleteEntity(Entity id);
+		void RegisterComponent(std::shared_ptr<IComponent> component);
+		void RegisterSystem(std::shared_ptr<ISystem> system);
+
+		void SetSystemRunStatus(std::shared_ptr<ISystem> system, bool);
+
 		void AddComponentToEntity(Entity id, std::shared_ptr<IComponent> component);
 		bool AddEntityToSystem(Entity id, std::shared_ptr<ISystem> system);
 		void RemoveComponentFromEntity(Entity id, std::shared_ptr<IComponent> component);
