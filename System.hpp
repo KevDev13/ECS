@@ -3,6 +3,7 @@
 #include <set>
 #include <bitset>
 #include <vector>
+#include <memory>
 
 #include "Entity.hpp"
 #include "Component.hpp"
@@ -14,25 +15,27 @@ namespace ecs
 	public:
 		virtual void Update() = 0;
 
-		bool AddEntity(Entity id)
+		virtual bool AddEntity(Entity id)
 		{
 			return true;
 		}
 
-		void RemoveEntity(Entity id)
+		virtual void RemoveEntity(Entity id)
 		{
 
 		}
 
-		inline void SetRequiredComponents(ComponentBits components) { m_requiredComponents = components; }
+		virtual inline void SetRequiredComponents(ComponentBits components) { m_requiredComponents = components; }
+		virtual inline void AddRequiredComponent(std::shared_ptr<IComponent> component) { m_requiredComponents.set(component->GetComponentBit()); }
+		virtual inline void ResetRequiredComponents() { m_requiredComponents.reset(); }
 
-		inline ComponentBits GetRequiredComponents() const { return m_requiredComponents; }
+		virtual inline ComponentBits GetRequiredComponents() const { return m_requiredComponents; }
 		
 	protected:
-		ComponentBits m_requiredComponents;
-		std::vector<Entity> m_entities;
+		ComponentBits m_requiredComponents{};
+		std::vector<Entity> m_entities{};
 
-		bool EntityHasRequiredComponents(ComponentBits testComponents) const
+		virtual bool EntityHasRequiredComponents(ComponentBits testComponents) const
 		{
 			/*
 			bitwise AND the test components to the required components.

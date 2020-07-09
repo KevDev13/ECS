@@ -36,4 +36,13 @@ namespace ecs
 	{
 		return true;
 	}
+
+	void EntityComponentSystem::Update()
+	{
+		// iterate through all systems and update them
+		for (auto it = m_systems.begin(); it != m_systems.end(); ++it)
+		{
+			(*it)->Update();
+		}
+	}
 }
