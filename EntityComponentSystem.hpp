@@ -26,8 +26,6 @@ namespace ecs
 		template <typename T> void RemoveComponentFromEntity(Entity id);
 		template <typename T> void RemoveEntityFromSystem(Entity id);
 
-		void Update();
-
 	protected:
 		std::unique_ptr<EntityList> m_entityList;
 		// TODO: replace these with ComponentList and SystemList classes

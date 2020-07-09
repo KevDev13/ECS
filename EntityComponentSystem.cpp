@@ -27,13 +27,4 @@ namespace ecs
 		// TODO: remove entity from any systems it is in. Do this after creating SystemList class if needed
 		return m_entityList->DeleteEntity(id);
 	}
-
-	void EntityComponentSystem::Update()
-	{
-		// iterate through all systems and update them
-		for (auto it = m_systems.begin(); it != m_systems.end(); ++it)
-		{
-			(*it)->Update();
-		}
-	}
 }
