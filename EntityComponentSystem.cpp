@@ -24,6 +24,7 @@ namespace ecs
 
 	bool EntityComponentSystem::DeleteEntity(Entity id)
 	{
+		// TODO: remove entity from any systems it is in. Do this after creating SystemList class if needed
 		return m_entityList->DeleteEntity(id);
 	}
 
