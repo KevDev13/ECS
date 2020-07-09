@@ -27,16 +27,6 @@ namespace ecs
 		return m_entityList->DeleteEntity(id);
 	}
 
-	void EntityComponentSystem::AddComponentToEntity(Entity id, std::shared_ptr<IComponent> component)
-	{
-
-	}
-
-	bool EntityComponentSystem::AddEntityToSystem(Entity id, std::shared_ptr<ISystem> system)
-	{
-		return true;
-	}
-
 	void EntityComponentSystem::Update()
 	{
 		// iterate through all systems and update them

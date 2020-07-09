@@ -18,13 +18,13 @@ namespace ecs
 
 		Entity CreateEntity();
 		bool DeleteEntity(Entity id);
-		void RegisterComponent(std::shared_ptr<IComponent> component);
-		void RegisterSystem(std::shared_ptr<ISystem> system);
+		template <typename T> void RegisterComponent();
+		template <typename T> void RegisterSystem();
 
-		void AddComponentToEntity(Entity id, std::shared_ptr<IComponent> component);
-		bool AddEntityToSystem(Entity id, std::shared_ptr<ISystem> system);
-		void RemoveComponentFromEntity(Entity id, std::shared_ptr<IComponent> component);
-		void RemoveEntityFromSystem(Entity id, std::shared_ptr<IComponent> component);
+		template <typename T> void AddComponentToEntity(Entity id);
+		template <typename T> bool AddEntityToSystem(Entity id);
+		template <typename T> void RemoveComponentFromEntity(Entity id);
+		template <typename T> void RemoveEntityFromSystem(Entity id);
 
 		void Update();
 
