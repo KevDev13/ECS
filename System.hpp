@@ -13,7 +13,13 @@ namespace ecs
 	class ISystem
 	{
 	public:
-		virtual void Update() = 0;
+		virtual void Update()
+		{
+			if (m_systemShouldRun)
+			{
+				Run();
+			}
+		}
 
 		virtual bool AddEntity(Entity id)
 		{
@@ -28,12 +34,15 @@ namespace ecs
 		virtual inline void SetRequiredComponents(ComponentBits components) { m_requiredComponents = components; }
 		virtual inline void AddRequiredComponent(std::shared_ptr<IComponent> component) { m_requiredComponents.set(component->GetComponentBit()); }
 		virtual inline void ResetRequiredComponents() { m_requiredComponents.reset(); }
+		virtual inline void SetShouldRun(bool run) { m_systemShouldRun = run; }
 
 		virtual inline ComponentBits GetRequiredComponents() const { return m_requiredComponents; }
+		virtual inline bool WillRun() const { return m_systemShouldRun; }
 		
 	protected:
 		ComponentBits m_requiredComponents{};
 		std::vector<Entity> m_entities{};
+		bool m_systemShouldRun;
 
 		virtual bool EntityHasRequiredComponents(ComponentBits testComponents) const
 		{
@@ -46,5 +55,7 @@ namespace ecs
 			ComponentBits result = m_requiredComponents & testComponents;
 			return result.count() == m_requiredComponents.count();
 		}
+
+		virtual void Run() = 0;
 	};
 }
