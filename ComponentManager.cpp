@@ -13,7 +13,7 @@ namespace ecs
 		}
 
 		// if component is already registered
-		if (m_componentNameToBits.count(typeid(T).name()) == 1)
+		if (m_componentNameToBits.count(typeid(T).name()) >= 1)
 		{
 			return false;
 		}
