@@ -24,4 +24,15 @@ namespace ecs
 
 		return true;
 	}
+
+	template <typename T> int ComponentManager::GetComponentBit() const
+	{
+		// if component isn't registered, return -1
+		if (m_componentNameToBits.count(typeid(T).name()) == 0)
+		{
+			return -1;
+		}
+
+		return m_componentNameToBits[typeid(T).name()];
+	}
 }

@@ -10,6 +10,8 @@ namespace ecs
 	{
 	public:
 		template <typename T> bool AddComponent();
+		
+		template <typename T> int GetComponentBit() const;
 
 	protected:
 		// map from typename to a single bit
