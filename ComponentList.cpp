@@ -56,4 +56,15 @@ namespace ecs
 		
 		return true;
 	}
+
+	template <typename T> T& ComponentList<T>::GetData(Entity id)
+	{
+		// if entity has the component, get it and return a reference. Otherwise return nullptr.
+		if (m_entityToIndexMap.count(id) >= 1)
+		{
+			return m_entityToIndexMap[id];
+		}
+
+		return nullptr;
+	}
 }
