@@ -1,6 +1,9 @@
 #pragma once
 
-#include <vector>
+#include <unordered_map>
+
+#include "Component.hpp"
+#include "Entity.hpp"
 
 namespace ecs
 {
@@ -12,6 +15,9 @@ namespace ecs
 		~ComponentList();
 
 	protected:
-		std::vector<T> m_components;
+		std::array<T, MAX_COMPONENTS> m_components{};
+		std::unordered_map<Entity, unsigned int> m_entityToComponentVector{};
+
+		unsigned int m_numberOfComponents{};
 	};
 }
