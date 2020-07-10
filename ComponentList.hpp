@@ -7,15 +7,20 @@
 
 namespace ecs
 {
+	class IComponentList
+	{
+		virtual bool RemoveComponent(Entity id) = 0;
+	};
+
 	template <typename T>
-	class ComponentList
+	class ComponentList : public IComponentList
 	{
 	public:
 		ComponentList();
 		~ComponentList();
 
 		bool AddComponent(Entity id, T component);
-		bool RemoveComponent(Entity id);
+		bool RemoveComponent(Entity id) override;
 
 		T& GetData(Entity id);
 
