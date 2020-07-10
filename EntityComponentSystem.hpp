@@ -4,6 +4,8 @@
 #include <memory>
 
 #include "Component.hpp"
+#include "ComponentList.hpp"
+#include "ComponentManager.hpp"
 #include "Entity.hpp"
 #include "EntityList.hpp"
 #include "System.hpp"
@@ -28,8 +30,7 @@ namespace ecs
 
 	protected:
 		std::unique_ptr<EntityList> m_entityList;
-		// TODO: replace these with ComponentList and SystemList classes
-		std::list<std::unique_ptr<IComponent>> m_components{};
-		std::list<std::unique_ptr<ISystem>> m_systems{};
+		std::unique_ptr<ComponentManager> m_componentManager;
+		// TODO: add SystemList/SystemManager class
 	};
 }

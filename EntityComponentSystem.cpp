@@ -5,6 +5,7 @@ namespace ecs
 	EntityComponentSystem::EntityComponentSystem()
 	{
 		m_entityList = std::make_unique<EntityList>();
+		m_componentManager = std::make_unique<ComponentManager>();
 	}
 
 	EntityComponentSystem::~EntityComponentSystem() {}
