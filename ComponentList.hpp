@@ -9,6 +9,7 @@ namespace ecs
 {
 	class IComponentList
 	{
+	public:
 		virtual bool RemoveComponent(Entity id) = 0;
 	};
 
