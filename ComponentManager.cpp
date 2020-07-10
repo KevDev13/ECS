@@ -4,7 +4,7 @@
 
 namespace ecs
 {
-	template <typename T> bool ComponentManager::AddComponent()
+	template <typename T> bool ComponentManager::AddComponentType()
 	{
 		// ensure the component inherits from the component interface class
 		if (!std::is_base_of<IComponent, T>::value)
@@ -25,7 +25,7 @@ namespace ecs
 		return true;
 	}
 
-	template <typename T> bool ComponentManager::RemoveComponent()
+	template <typename T> bool ComponentManager::RemoveComponentType()
 	{
 		// ensure the component inherits from the component interface class
 		if (!std::is_base_of<IComponent, T>::value)
@@ -43,6 +43,16 @@ namespace ecs
 		--m_numberOfComponents;
 
 		return true;
+	}
+
+	template <typename T> bool ComponentManager::AddComponentToEntity(Entity id)
+	{
+
+	}
+
+	template <typename T> bool ComponentManager::RemoveComponentFromEntity(Entity id)
+	{
+
 	}
 
 	template <typename T> int ComponentManager::GetComponentBit() const

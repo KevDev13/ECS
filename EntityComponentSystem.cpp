@@ -32,6 +32,6 @@ namespace ecs
 
 	template <typename T> bool EntityComponentSystem::RegisterComponent()
 	{
-		return m_componentManager->AddComponent<T>();
+		return m_componentManager->AddComponentType<T>();
 	}
 }

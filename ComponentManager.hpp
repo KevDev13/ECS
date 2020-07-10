@@ -11,8 +11,10 @@ namespace ecs
 	class ComponentManager
 	{
 	public:
-		template <typename T> bool AddComponent();
-		template <typename T> bool RemoveComponent();
+		template <typename T> bool AddComponentType();
+		template <typename T> bool RemoveComponentType();
+		template <typename T> bool AddComponentToEntity(Entity id);
+		template <typename T> bool RemoveComponentFromEntity(Entity id);
 		
 		template <typename T> int GetComponentBit() const;
 
