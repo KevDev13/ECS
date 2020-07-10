@@ -34,7 +34,7 @@ namespace ecs
 		}
 
 		// if component is not registered
-		if (m_componentNameToBits.count(typeid(T).name()) ==0)
+		if (m_componentNameToBits.count(typeid(T).name()) == 0)
 		{
 			return false;
 		}
