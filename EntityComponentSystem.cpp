@@ -19,7 +19,8 @@ namespace ecs
 		}
 		else
 		{
-			// throw an error or something here
+			// TODO: throw an error or something here instead of still returning id
+			return id;
 		}
 	}
 
