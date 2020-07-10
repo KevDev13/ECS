@@ -25,8 +25,33 @@ namespace ecs
 		return true;
 	}
 
+	template <typename T> bool ComponentManager::RemoveComponent()
+	{
+		// ensure the component inherits from the component interface class
+		if (!std::is_base_of<IComponent, T>::value)
+		{
+			return false;
+		}
+
+		// if component is not registered
+		if (m_componentNameToBits.count(typeid(T).name()) ==0)
+		{
+			return false;
+		}
+
+		m_componentNameToBits.erase(typeid(T).name());
+		--m_numberOfComponents;
+
+		return true;
+	}
+
 	template <typename T> int ComponentManager::GetComponentBit() const
 	{
+		// ensure the component inherits from the component interface class
+		if (!std::is_base_of<IComponent, T>::value)
+		{
+			return -1;
+		}
 		// if component isn't registered, return -1
 		if (m_componentNameToBits.count(typeid(T).name()) == 0)
 		{

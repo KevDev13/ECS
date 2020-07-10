@@ -10,6 +10,7 @@ namespace ecs
 	{
 	public:
 		template <typename T> bool AddComponent();
+		template <typename T> bool RemoveComponent();
 		
 		template <typename T> int GetComponentBit() const;
 
