@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ComponentList.cpp" />
+    <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="EntityComponentSystem.cpp" />
     <ClCompile Include="EntityList.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComponentList.hpp" />
+    <ClInclude Include="ComponentManager.hpp" />
     <ClInclude Include="ECS.hpp" />
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="EntityComponentSystem.hpp" />
