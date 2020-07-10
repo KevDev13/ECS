@@ -28,4 +28,9 @@ namespace ecs
 		// TODO: remove entity from any systems it is in. Do this after creating SystemList class if needed
 		return m_entityList->DeleteEntity(id);
 	}
+
+	template <typename T> bool EntityComponentSystem::RegisterComponent()
+	{
+		return m_componentManager->AddComponent<T>();
+	}
 }
