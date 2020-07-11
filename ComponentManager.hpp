@@ -12,7 +12,8 @@ namespace ecs
 	{
 	public:
 		template <typename T> bool AddComponentType();
-		template <typename T> bool AddComponentToEntity(Entity id);
+		template <typename T> void AddComponentToEntity(Entity id);
+		template <typename T> void AddComponentToEntity(Entity id, T component);
 		template <typename T> bool RemoveComponentFromEntity(Entity id);
 		
 		template <typename T> int GetComponentBit() const;

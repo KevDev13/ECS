@@ -24,6 +24,7 @@ namespace ecs
 		template <typename T> std::shared_ptr<T> RegisterSystem();
 
 		template <typename T> void AddComponentToEntity(Entity id);
+		template <typename T> void AddComponentToEntity(Entity id, T component);
 		template <typename T> bool AddEntityToSystem(Entity id);
 		template <typename T> void RemoveComponentFromEntity(Entity id);
 		template <typename T> void RemoveEntityFromSystem(Entity id);

@@ -21,10 +21,16 @@ namespace ecs
 		return true;
 	}
 
-	template <typename T> bool ComponentManager::AddComponentToEntity(Entity id)
+	template <typename T> void ComponentManager::AddComponentToEntity(Entity id)
 	{
 		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[typeid(T).name()]);
-		compList->AddComponent(id, std::make_shared<T>);
+		compList->AddComponent(id, T());
+	}
+
+	template <typename T> void ComponentManager::AddComponentToEntity(Entity id, T component)
+	{
+		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[typeid(T).name()]);
+		compList->AddComponent(id, component);
 	}
 
 	template <typename T> bool ComponentManager::RemoveComponentFromEntity(Entity id)
