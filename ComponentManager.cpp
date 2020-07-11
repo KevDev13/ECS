@@ -23,7 +23,8 @@ namespace ecs
 
 	template <typename T> bool ComponentManager::AddComponentToEntity(Entity id)
 	{
-
+		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[typeid(T).name()]);
+		compList->AddComponent(id, std::make_shared<T>);
 	}
 
 	template <typename T> bool ComponentManager::RemoveComponentFromEntity(Entity id)
