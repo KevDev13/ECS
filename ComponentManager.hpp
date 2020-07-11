@@ -20,10 +20,10 @@ namespace ecs
 
 	protected:
 		// map from typename to a single bit
-		std::unordered_map<const char*, unsigned int> m_componentNameToBits{};
+		std::unordered_map<const char*, Component> m_componentNameToBits{};
 		// map of all component lists, one list for each component type
 		std::unordered_map<const char*, std::shared_ptr<IComponentList>> m_componentLists{};
-		unsigned int m_numberOfComponents{};
+		Component m_numberOfComponents{};
 
 		// internal function to check if the component type is registered
 		// using checkRegistered = true will verify that that the component type has been registered

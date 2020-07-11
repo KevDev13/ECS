@@ -50,12 +50,6 @@ namespace ecs
 
 	template <typename T> bool ComponentManager::ComponentTypeValid(bool checkRegistered) const
 	{
-		// ensure the component inherits from the component interface class
-		if (!std::is_base_of<IComponent, T>::value)
-		{
-			return false;
-		}
-
 		const char* name = typeid(T).name();
 
 		// verify if componenet type has been registered or not, depending on what we're checking

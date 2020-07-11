@@ -33,7 +33,7 @@ namespace ecs
 		}
 
 		virtual inline void SetRequiredComponents(ComponentBits components) { m_requiredComponents = components; }
-		virtual inline void AddRequiredComponent(std::shared_ptr<IComponent> component) { m_requiredComponents.set(component->GetComponentBit()); }
+		virtual inline void AddRequiredComponent(Component bit) { m_requiredComponents.set(bit); }
 		virtual inline void ResetRequiredComponents() { m_requiredComponents.reset(); }
 
 		virtual inline ComponentBits GetRequiredComponents() const { return m_requiredComponents; }

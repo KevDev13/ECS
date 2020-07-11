@@ -4,12 +4,6 @@ namespace ecs
 {
 	template <typename T> bool ComponentList<T>::AddComponent(Entity id, T component)
 	{
-		// ensure T is derived from component interface class
-		if (!std::is_base_of<IComponent, T>::value)
-		{
-			return false;
-		}
-
 		// ensure entity doesn't have the component already
 		if (m_entityToIndexMap.count(id) >= 1)
 		{
@@ -25,12 +19,6 @@ namespace ecs
 
 	template <typename T> bool ComponentList<T>::RemoveComponent(Entity id)
 	{
-		// ensure T is derived from component interface class
-		if (!std::is_base_of<IComponent, T>::value)
-		{
-			return false;
-		}
-
 		// ensure entity is in the array
 		if (m_entityToIndexMap.count(id) == 0)
 		{

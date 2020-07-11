@@ -27,8 +27,8 @@ namespace ecs
 
 	protected:
 		std::array<T, MAX_COMPONENTS> m_components{};
-		std::unordered_map<Entity, unsigned int> m_entityToIndexMap{};
+		std::unordered_map<Entity, Component> m_entityToIndexMap{};
 
-		unsigned int m_numberOfComponents{};
+		Component m_numberOfComponents{};
 	};
 }
