@@ -19,6 +19,8 @@ namespace ecs
 		inline void SetEntityComponents(Entity id, ComponentBits bits) { m_componentBits[id] = bits; }
 		inline ComponentBits GetEntityComponents(Entity id) const { return m_componentBits[id]; }
 		inline bool EntityExists(Entity id) const { return m_entitiesInUse.test(id); }
+		inline void AddComponent(Entity id, Component component) { m_componentBits[id].set(component); }
+		inline void RemoveComponent(Entity id, Component component) { m_componentBits[id].reset(component); }
 
 	protected:
 		// array to map component bitset to each entity
