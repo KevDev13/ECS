@@ -54,6 +54,17 @@ namespace ecs
 		}
 
 		m_componentManager->AddComponentToEntity<T>(id, component);
-		m_entityList->SetEntityComponents(m_entityList->GetEntityComponents(id) & m_componentManager->GetComponentBit<T>());
+		m_entityList->AddComponent(id, m_componentManager->GetComponentBit<T>());
+	}
+
+	template <typename T> void EntityComponentSystem::RemoveComponentFromEntity(Entity id)
+	{
+		if (!m_entityList->EntityExists(id))
+		{
+			return;
+		}
+
+		m_componentManager->RemoveComponentFromEntity<T>(id);
+		m_entityList->RemoveComponent(id, m_componentManager->GetComponentBit<T>());
 	}
 }
