@@ -24,13 +24,29 @@ namespace ecs
 
 	template <typename T> void ComponentManager::AddComponentToEntity(Entity id)
 	{
-		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[typeid(T).name()]);
+		const char* name = typeid(T).name();
+		// if component isn't registered, return without doing anything
+		if (m_componentNameToBits.count(name) == 0)
+		{
+			return;
+		} 
+
+		// cast component list of the given type to a ComponentList (from IComponentList), then add the component to it
+		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[name]);
 		compList->AddComponent(id, T());
 	}
 
 	template <typename T> void ComponentManager::AddComponentToEntity(Entity id, T component)
 	{
-		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[typeid(T).name()]);
+		const char* name = typeid(T).name();
+		// if component isn't registered, return without doing anything
+		if (m_componentNameToBits.count(name) == 0)
+		{
+			return;
+		}
+
+		// cast component list of the given type to a ComponentList (from IComponentList), then add the component to it
+		std::shared_ptr<ComponentList<T>> compList = std::dynamic_pointer_cast<ComponentList<T>>(m_componentLists[name]);
 		compList->AddComponent(id, component);
 	}
 
