@@ -6,7 +6,8 @@ namespace ecs
 {
 	template <typename T> bool ComponentManager::AddComponentType()
 	{
-		if (!ComponentTypeValid<T>(CHECK_NOT_REGISTERED))
+		// if component is already registered, return false
+		if (m_componentNameToBits.count(typeid(T).name()) >= 1)
 		{
 			return false;
 		}
@@ -40,29 +41,12 @@ namespace ecs
 
 	template <typename T> int ComponentManager::GetComponentBit() const
 	{
-		if (!ComponentTypeValid<T>(CHECK_REGISTERED))
+		// if component isn't registered, return -1
+		if (m_componentNameToBits.count(typeid(T).name()) == 0)
 		{
 			return -1;
 		}
 
 		return m_componentNameToBits[typeid(T).name()];
-	}
-
-	template <typename T> bool ComponentManager::ComponentTypeValid(bool checkRegistered) const
-	{
-		const char* name = typeid(T).name();
-
-		// verify if componenet type has been registered or not, depending on what we're checking
-		if (checkRegistered && m_componentNameToBits.count(name) == 0)
-		{
-			return false;
-		}
-
-		if (!checkRegistered && m_componentNameToBits.count(name) >= 1)
-		{
-			return false;
-		}
-
-		return true;
 	}
 }

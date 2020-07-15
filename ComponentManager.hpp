@@ -24,12 +24,5 @@ namespace ecs
 		// map of all component lists, one list for each component type
 		std::unordered_map<const char*, std::shared_ptr<IComponentList>> m_componentLists{};
 		Component m_numberOfComponents{};
-
-		// internal function to check if the component type is registered
-		// using checkRegistered = true will verify that that the component type has been registered
-		// using checkRegistered = false will verify that the componeny type has NOT been registed (i.e. return false if the type has already been registered
-		template <typename T> bool ComponentTypeValid(bool checkRegistered) const;
-		static const bool CHECK_REGISTERED = true;
-		static const bool CHECK_NOT_REGISTERED = false;
 	};
 }
