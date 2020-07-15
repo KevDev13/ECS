@@ -23,6 +23,7 @@ namespace ecs
 		std::unordered_map<const char*, Component> m_componentNameToBits{};
 		// map of all component lists, one list for each component type
 		std::unordered_map<const char*, std::shared_ptr<IComponentList>> m_componentLists{};
+		// total number of components
 		Component m_numberOfComponents{};
 	};
 }
