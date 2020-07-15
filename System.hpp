@@ -29,7 +29,14 @@ namespace ecs
 
 		virtual void RemoveEntity(Entity id)
 		{
-
+			for (auto iter = m_entities.begin(); iter != m_entities.end(); ++iter)
+			{
+				if (*iter == id)
+				{
+					m_entities.erase(iter);
+					break;
+				}
+			}
 		}
 
 		virtual inline void SetRequiredComponents(ComponentBits components) { m_requiredComponents = components; }
